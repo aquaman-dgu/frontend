@@ -97,40 +97,40 @@
         .table td {
             vertical-align: middle;
         }
-        /* 이미지와 description 사이의 간격 조정 */
-        .table td {
-            padding: 5px; /* 이미지와 description 사이의 간격을 조정합니다. */
-        }
 
-        /* 이미지와 설명 간격을 좁히기 위한 스타일 */
         .table td {
-            vertical-align: top; /* 이미지와 설명을 상단에 정렬합니다. */
+            padding: 5px;
+            vertical-align: top;
         }
 
         .table img {
-            display: block; /* 이미지를 블록 요소로 변경하여 위아래 간격이 생기지 않도록 합니다. */
-            margin-bottom: 10px; /* 이미지 아래에 10px 간격을 추가합니다. */
+            display: block;
+            margin-bottom: 10px;
         }
 
         .table td .form-group {
             margin-left: 5px;
-            margin-bottom: 0; /* 입력 폼의 하단 여백을 제거합니다. */
+            margin-bottom: 0;
         }
 
-        /* 파일 선택 레이블의 스타일 수정 */
         #file-label {
-            display: block; /* 블록 요소로 설정하여 이미지 아래에 배치 */
-            margin-top: 10px; /* 이미지와의 간격 조정 */
-            text-align: center; /* 가운데 정렬 */
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .form-control {
+            width: 100%;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
 <div class="search-container">
-    <form action="/search" method="GET"> <!-- 폼 엘리먼트 추가 -->
+    <form action="/search" method="GET">
         <div class="search-input-container">
-            <span class="search-icon bi bi-search"></span> <!-- 돋보기 아이콘 추가 -->
-            <input type="text" class="search-input" name="q" placeholder="Search member name..."> <!-- placeholder 수정 -->
+            <span class="search-icon bi bi-search"></span>
+            <input type="text" class="search-input" name="q" placeholder="Search member name...">
         </div>
     </form>
 </div>
@@ -190,7 +190,6 @@
         </li>
     </ul>
 
-    <!-- if not signed in -->
     <ul class="nav nav-pills flex-column mb-3">
         <li class="nav-item">
             <a href="/auth/logout" class="nav-link text-black">
@@ -199,18 +198,16 @@
             </a>
         </li>
     </ul>
-    <!-- if signed in -->
 </div>
 
 <div class="content-container">
     <div class="table-container">
-        <h4><b>성장 예측</b><h> - 입력값</h></h4>
+        <h4><b>성장 예측</b> - 입력값</h4>
         <br>
         <table class="table">
             <tbody>
             <tr>
                 <td>
-                    <!-- 어류 코드, 길이, 무게, 질병 여부, 질병 이름 입력창 -->
                     <div class="container mt-5">
                         <div style="font-weight: bolder">넙치 체장 입력</div>
                         <br>
@@ -244,28 +241,21 @@
                             <label for="fish-eat" class="me-2" style="min-width: 100px;">Eat</label>
                             <input type="text" class="form-control" id="fish-eat" placeholder="Enter Eat">
                         </div>
-                        </div>
+                    </div>
                     <button type="button" class="btn btn-secondary mt-2" style="margin-left: 600px;">Submit</button>
                 </td>
                 <td>
-                    <!-- 이미지 첨부 기능 -->
                     <input type="file" id="fish-image" accept="image/*" style="display: none;">
                     <img id="preview-image" src="/img/growth_default.png" alt="Default Image" style="max-width: 400px; height: auto;">
-                    <label for="fish-image" id="file-label">파일 선택</label> <!-- 이미지 아래에 위치한 파일 선택 레이블 -->
-
+                    <label for="fish-image" id="file-label">파일 선택</label>
                 </td>
-
             </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-
-
-
 <script>
-    // 파일 선택 input 변경시 이미지 미리보기 업데이트
     document.getElementById('fish-image').addEventListener('change', function(event) {
         var selectedFile = event.target.files[0];
         var previewImage = document.getElementById('preview-image');
@@ -298,10 +288,8 @@
     });
 
     document.getElementById('update-button').addEventListener('click', function() {
-        // 여기에 테이블 데이터를 업데이트하는 코드를 추가합니다.
         console.log('Table updated!');
     });
-
 </script>
 
 </body>
